@@ -30,4 +30,4 @@ Para gerar os arquivos CSS usamos a liguagem SASS.
 
 Esse foi o único plugin desenvolvido exclusivamente para esse projeto. Trata-se de uma integração com o twitter, utilizando as credenciais, as keywords, a localização central e o raio definidos na configuração do plugin. 
 
-Ele cria uma crontask para verificar novos twittes a cada 15minutos e adicioná-los ao bando. Ele também libera um endpoint público para listar os twittes selecionados.
+Ele cria uma crontask para verificar novos twittes a cada 15minutos e adicioná-los ao banco. Ele também libera um endpoint público para listar os twittes selecionados.
