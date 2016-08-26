@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: Parque Capibaribe
-Author: Badoque Solu├º├Áes Tecnol├│gicas
+Author: Badoque Soluções Tecnológicas
 Version: 1.0
 Author URI: http://www.badoque.com
 */
@@ -407,27 +407,33 @@ header .bar {
     -webkit-transform: perspective(140px) rotateX(-180deg);
     transform: perspective(140px) rotateX(-180deg);
     opacity: 0; }
+
   25%, 75% {
     -webkit-transform: perspective(140px) rotateX(0deg);
     transform: perspective(140px) rotateX(0deg);
     opacity: 1; }
+
   90%, 100% {
     -webkit-transform: perspective(140px) rotateY(180deg);
     transform: perspective(140px) rotateY(180deg);
     opacity: 0; } }
+
 @keyframes sk-foldCubeAngle {
   0%, 10% {
     -webkit-transform: perspective(140px) rotateX(-180deg);
     transform: perspective(140px) rotateX(-180deg);
     opacity: 0; }
+
   25%, 75% {
     -webkit-transform: perspective(140px) rotateX(0deg);
     transform: perspective(140px) rotateX(0deg);
     opacity: 1; }
+
   90%, 100% {
     -webkit-transform: perspective(140px) rotateY(180deg);
     transform: perspective(140px) rotateY(180deg);
     opacity: 0; } }
+
 #content section.active {
   height: auto;
   min-height: 100vh;
@@ -527,9 +533,3 @@ section#actions .row .col-md-6 .img-wrapper {
 section#actions .row .col-md-6 .img-wrapper img {
   max-height: 100%;
   max-width: 100%; }
-
-iframe.mapa {
-  width: 100%;
-  height: 400px; }
-
-/*# sourceMappingURL=style.css.map */

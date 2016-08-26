@@ -1,42 +1,32 @@
-(function(){
-    'use strict';
+function CacheManager(){
 
-    define('cache-manager', ['jquery'], function($){
+    var self = this;
+    var storedTemplates = {};
 
-        function CacheManager(){
+    self.get = get;
+    self.refreshTemplate = refreshTemplate;
 
-            var self = this;
-            var storedTemplates = {};
+    function refreshTemplate(url){
+        var promise = $.get(url);
+        promise.done(function(template){
+            storedTemplates[url] = template;
+        });
+    }
 
-            self.get = get;
-            self.refreshTemplate = refreshTemplate;
-
-            function refreshTemplate(url){
-                var promise = $.get(url);
-                promise.done(function(template){
-                    storedTemplates[url] = template;
-                });
-            }
-
-            function get(url){
-                if(storedTemplates[url] === undefined){
-                    var promise = $.get(url);
-                    promise.done(function(template){
-                        storedTemplates[url] = template;
-                    });
-                    return promise;
-                } else {
-                    return {
-                        done: function(cb){
-                            return cb(storedTemplates[url]);
-                        }
-                    }
+    function get(url){
+        if(storedTemplates[url] === undefined){
+            var promise = jQuery.get(url);
+            promise.done(function(template){
+                storedTemplates[url] = template;
+            });
+            return promise;
+        } else {
+            return {
+                done: function(cb){
+                    return cb(storedTemplates[url]);
                 }
             }
-
         }
+    }
 
-        return CacheManager;
-
-    });
-})();
+}

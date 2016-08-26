@@ -1,92 +1,83 @@
-(function(){
-    define('app', ['jquery', 'router', 'cache-manager',
-     'menu', 'project-slider', 'velocity'], 
-    function($, Router, CacheManager, Menu, ProjectSlider){
-        function App(){
-            var self = this;
+function App(){
+    var self = this;
 
-            self.init = init;
-            self.destroy = destroy;
+    self.init = init;
+    self.destroy = destroy;
 
-            function init(){
-                self.cm = new CacheManager();
+    function init(){
+        self.cm = new CacheManager();
 
-                self.menu = new Menu(self.cm);
-                self.menu.init();
+        self.menu = new Menu(self.cm);
+        self.menu.init();
 
-                self.projectSlider = new ProjectSlider(self.cm);
+        self.projectSlider = new ProjectSlider(self.cm);
 
-                self.router = new Router(self.cm, self.menu);
-                $('#menu a').click(function(e){
-                    e.preventDefault();
-                    $("html")
-                        .velocity('stop')
-                        .velocity('scroll', {
-                            duration: 1000, 
-                            offset: $('#content section').offset().top 
-                        });
-                    location.hash = $(this).attr('href')
-                })
-                $('#menu a').each(function(i, el){
-                    var item = $(el);
-                    var itemStateName = item.attr('href').substr(1);
-                    self.router.addState(itemStateName, {
-                        url: itemStateName,
-                        templateUrl: item.attr('data-page-url'),
-                        controller: function(stateName, args, states){
-                            self.menu.renderSection(stateName, states, function(){
-                                if(item.attr('data-menu-item-type') === 'category'){
-                                    $('#content .action').each(function(i, el){
-                                        $(el).attr('href', '#'+itemStateName+'/'+$(el).attr('data-action-slug'));
-                                    });
-                                }
+        self.router = new Router(self.cm, self.menu);
+        jQuery('#menu a').click(function(e){
+            e.preventDefault();
+            jQuery("html")
+                .velocity('stop')
+                .velocity('scroll', {
+                    duration: 1000, 
+                    offset: jQuery('#content section').offset().top 
+                });
+            location.hash = jQuery(this).attr('href')
+        })
+        jQuery('#menu a').each(function(i, el){
+            var item = jQuery(el);
+            var itemStateName = item.attr('href').substr(1);
+            self.router.addState(itemStateName, {
+                url: itemStateName,
+                templateUrl: item.attr('data-page-url'),
+                controller: function(stateName, args, states){
+                    self.menu.renderSection(stateName, states, function(){
+                        if(item.attr('data-menu-item-type') === 'category'){
+                            jQuery('#content .action').each(function(i, el){
+                                jQuery(el).attr('href', '#'+itemStateName+'/'+jQuery(el).attr('data-action-slug'));
                             });
                         }
                     });
+                }
+            });
 
-                    if(item.attr('data-menu-item-type') === 'category'){
-                        self.router.addState(itemStateName+'-ActionDetail', {
-                            url: itemStateName+'/:actionId',
-                            controller: function(stateName, args, states){
-                                if($('#content').html() === ''){
-                                    self.menu.renderSection(itemStateName, states, function(){
-                                        $('#content .action').each(function(i, el){
-                                            $(el).attr('href', '#'+itemStateName+'/'+$(el).attr('data-action-slug'));
-                                        });
-                                        self.projectSlider.init({
-                                            slideClass: '.bdq-slide',
-                                            templateUrl: $('#'+args.actionId).attr('data-action-link'),
-                                            title: $('#'+args.actionId).attr('data-action-title')
-                                        });
-                                    });
-                                } else {
-                                    self.projectSlider.init({
-                                        slideClass: '.bdq-slide',
-                                        templateUrl: $('#'+args.actionId).attr('data-action-link'),
-                                        title: $('#'+args.actionId).attr('data-action-title')
-                                    });
-                                }
-                            }
-                        });
-                    }
-
-                    if(i === 0){
-                        self.router.setDefaultState(item.attr('href').substr(1));
+            if(item.attr('data-menu-item-type') === 'category'){
+                self.router.addState(itemStateName+'-ActionDetail', {
+                    url: itemStateName+'/:actionId',
+                    controller: function(stateName, args, states){
+                        if(jQuery('#content').html() === ''){
+                            self.menu.renderSection(itemStateName, states, function(){
+                                jQuery('#content .action').each(function(i, el){
+                                    jQuery(el).attr('href', '#'+itemStateName+'/'+jQuery(el).attr('data-action-slug'));
+                                });
+                                self.projectSlider.init({
+                                    slideClass: '.bdq-slide',
+                                    templateUrl: jQuery('#'+args.actionId).attr('data-action-link'),
+                                    title: jQuery('#'+args.actionId).attr('data-action-title')
+                                });
+                            });
+                        } else {
+                            self.projectSlider.init({
+                                slideClass: '.bdq-slide',
+                                templateUrl: jQuery('#'+args.actionId).attr('data-action-link'),
+                                title: jQuery('#'+args.actionId).attr('data-action-title')
+                            });
+                        }
                     }
                 });
-                
-                
-
-                self.router.init();
             }
 
-            function destroy(){
-                self.menu.destroy();
-                self.router.destroy();
+            if(i === 0){
+                self.router.setDefaultState(item.attr('href').substr(1));
             }
-        }
+        });
+        
+        
 
+        self.router.init();
+    }
 
-        return App;
-    })
-})();
+    function destroy(){
+        self.menu.destroy();
+        self.router.destroy();
+    }
+}
