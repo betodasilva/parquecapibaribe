@@ -16,7 +16,14 @@ Esse repositório armazena o tema e os plugins wordpress necessários para o sit
 * Siga o passo a passo do wordpress acessando o projeto no apache pelo browser
 * Ative todos os plugins instalados (com excessão do akismet, esse é opcional)
 * OBS: O plugin do twitter necessita das credenciais de uma conta real do twitter para funcionar.
-* Para modificar os estilos (SASS) instale o nodejs, o grunt e o node-sass de forma global no seu computador
+* Para modificar os estilos (SASS) instale o nodejs, o grunt e o ruby-sass de forma global no seu computador
+    * VERSÕES:
+        * node v5.6.0
+        * npm 3.7.3
+        * grunt-cli v0.1.13
+        * grunt v1.0.1
+        * ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux]
+        * Sass 3.2.12 (Media Mark)
 * Após instalar as dependências do passo anterior, usando um terminal de linha de comandos, acesse a pasta do tema parquecapibaribe, rode "npm install" para instalar as dependências do gruntfile
 * Nessa mesma pasta rode o comando "grunt" na pasta do tema parquecapibaribe para iniciar a compilação do SASS em CSS. Esse comando também inicializa um watcher que observa as modificações feitas nos arquivos SCSS e ja atualiza os CSS's gerados em tempo real  
 
@@ -30,4 +37,4 @@ Para gerar os arquivos CSS usamos a liguagem SASS.
 
 Esse foi o único plugin desenvolvido exclusivamente para esse projeto. Trata-se de uma integração com o twitter, utilizando as credenciais, as keywords, a localização central e o raio definidos na configuração do plugin. 
 
-Ele cria uma crontask para verificar novos twittes a cada 15minutos e adicioná-los ao bando. Ele também libera um endpoint público para listar os twittes selecionados.
+Ele cria uma crontask para verificar novos twittes a cada 15minutos e adicioná-los ao banco. Ele também libera um endpoint público para listar os twittes selecionados.
