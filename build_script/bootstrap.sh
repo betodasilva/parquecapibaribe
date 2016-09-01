@@ -26,7 +26,7 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password parquecapibaribe'
 sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql
 mysql -u root --password=parquecapibaribe -e "CREATE DATABASE wp_parque_capibaribe;"
-mysql -u root --password=parquecapibaribe < ${PROJECT_DIR}/wp_parque_capibaribe.sql
+mysql -u root --password=parquecapibaribe --database=wp_parque_capibaribe < ${PROJECT_DIR}/wp_parque_capibaribe.sql
 
 echo "Installing php.."
 apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
