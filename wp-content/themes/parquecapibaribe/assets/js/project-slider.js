@@ -20,9 +20,9 @@ function ProjectSlider(cm){
 
     function init(config){
         generateUid();
-        self.config = $.extend(true, defaultConfig, config);
+        self.config = jQuery.extend(true, defaultConfig, config);
 
-        $('html,body').addClass('no-scroll');
+        jQuery('html,body').addClass('no-scroll');
 
         initSlideTemplate();
         initBtnEvents();
@@ -32,12 +32,12 @@ function ProjectSlider(cm){
     }
 
     function initSlideTemplate(){
-        var slider = $('<div>')
+        var slider = jQuery('<div>')
             .addClass('slider')
             .attr('id', uid.substr(1));
 
 
-        var spinner = $('<div class="spinner-wrapper">'+
+        var spinner = jQuery('<div class="spinner-wrapper">'+
           '<div class="sk-folding-cube">'+
             '<div class="sk-cube1 sk-cube"></div>'+
             '<div class="sk-cube2 sk-cube"></div>'+
@@ -46,56 +46,56 @@ function ProjectSlider(cm){
           '</div>'+
         '</div>');
 
-        var title = $('<h1>')
+        var title = jQuery('<h1>')
             .html(self.config.title)
             .appendTo(slider);
 
-        var slideWrapper = $('<div>')
+        var slideWrapper = jQuery('<div>')
             .addClass('slide-wrapper')
             .appendTo(slider);
 
-        var closeBtn = $('<button>')
+        var closeBtn = jQuery('<button>')
             .addClass(self.config.closeBtnClass.substr(1))
             .appendTo(slider)
             .html('<i class="glyphicon glyphicon-remove"> </i>');
 
-        var previousBtn = $('<button>')
+        var previousBtn = jQuery('<button>')
             .addClass(self.config.previousBtnClass.substr(1) + ' visible-md visible-lg')
             .appendTo(slider)
             .html('<i class="glyphicon glyphicon-chevron-left"> </i>');
 
-        var nextBtn = $('<button>')
+        var nextBtn = jQuery('<button>')
             .addClass(self.config.nextBtnClass.substr(1) + ' visible-md visible-lg')
             .appendTo(slider)
             .html('<i class="glyphicon glyphicon-chevron-right"> </i>');
 
-        $('body').append(slider);
+        jQuery('body').append(slider);
     }
 
     function initBtnEvents(){
-        $(self.config.previousBtnClass).click(function(e){
+        jQuery(self.config.previousBtnClass).click(function(e){
             if(activeSlide > 0){
                 previous();
             }
         });
-        $(self.config.nextBtnClass).click(function(e){
+        jQuery(self.config.nextBtnClass).click(function(e){
             if(activeSlide < getSlidesCount() - 1){
                 next();
             }
         });
-        $(self.config.closeBtnClass).click(function(e){
+        jQuery(self.config.closeBtnClass).click(function(e){
             destroy();
         });
     }
 
 
     function getSlidesCount(){
-        return $(uid).find(self.config.slideClass).length;
+        return jQuery(uid).find(self.config.slideClass).length;
     }
 
     function generateUid(){
         uid = '#project-slide-' + 1;
-        for(var i=2; $(uid).length !== 0; i++){
+        for(var i=2; jQuery(uid).length !== 0; i++){
             uid = '#project-slide-' + i;
         }
     }
@@ -117,8 +117,8 @@ function ProjectSlider(cm){
     function goToSlide(slide){
         if(slide < getSlidesCount() && slide >= 0){
             activeSlide = slide;
-            $(uid).find(self.config.slideClass).addClass('hidden-md hidden-lg');
-            $($(uid).find(self.config.slideClass)[slide]).removeClass('hidden-md hidden-lg');
+            jQuery(uid).find(self.config.slideClass).addClass('hidden-md hidden-lg');
+            jQuery(jQuery(uid).find(self.config.slideClass)[slide]).removeClass('hidden-md hidden-lg');
         }
 
         updateControlButtonsBehavior(slide);
@@ -127,39 +127,39 @@ function ProjectSlider(cm){
 
     function updateControlButtonsBehavior(slide){
         if(slide === 0){
-            $(self.config.previousBtnClass).addClass('disabled');
+            jQuery(self.config.previousBtnClass).addClass('disabled');
         } else {
-            $(self.config.previousBtnClass).removeClass('disabled');
+            jQuery(self.config.previousBtnClass).removeClass('disabled');
         }
 
         if(slide === getSlidesCount() - 1){
-            $(self.config.nextBtnClass).addClass('disabled');
+            jQuery(self.config.nextBtnClass).addClass('disabled');
         } else {
-            $(self.config.nextBtnClass).removeClass('disabled');
+            jQuery(self.config.nextBtnClass).removeClass('disabled');
         }
     }
 
     function loadSlideContent(){
         cm.get(self.config.templateUrl).done(function(templateStr){
-            $(uid).find('.slide-wrapper').html(templateStr);
-            $(uid).find(self.config.slideClass).each(function(i, el){
+            jQuery(uid).find('.slide-wrapper').html(templateStr);
+            jQuery(uid).find(self.config.slideClass).each(function(i, el){
                 if(i !== 0){
-                    $(el).addClass('hidden-md hidden-lg');
+                    jQuery(el).addClass('hidden-md hidden-lg');
                 }
             });
-            $('.spinner-wrapper').remove();
+            jQuery('.spinner-wrapper').remove();
         });
     }
 
     function destroy(){
-        $(self.config.previousBtnClass).off('click');
-        $(self.config.nextBtnClass).off('click');
-        $(self.config.closeBtnClass).off('click');
-        $(uid).remove();
+        jQuery(self.config.previousBtnClass).off('click');
+        jQuery(self.config.nextBtnClass).off('click');
+        jQuery(self.config.closeBtnClass).off('click');
+        jQuery(uid).remove();
 
         activeSlide = 0;
 
-        $('html,body').removeClass('no-scroll');
+        jQuery('html,body').removeClass('no-scroll');
 
         var urlParts = location.hash.split('/');
         urlParts.pop();
