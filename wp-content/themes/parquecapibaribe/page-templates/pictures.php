@@ -1,4 +1,24 @@
-<section id="pictures">
+<?php 
+
+    the_post();
+
+    if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && !strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        /* SE NÃO FOR AJAX REDIRECIONA */
+
+        $redirect = get_bloginfo('url') . '/#' . bdq_hash_slug(get_permalink());
+        header("Location: $redirect");
+        die();
+    }
+
+?>
+
+<?php /* Template Name: faq */ ?>
+
+<section id="<?php echo bdq_hash_slug(get_permalink());?>">
+  <h1><?php the_title();?></h1>
+
+  <?php the_content();?>
+  
   <div class="row">
    <div class="col-xs-8 col-sm-8 col-md-12">
       <h2>Fotos</h2>

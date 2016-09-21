@@ -9,6 +9,8 @@
     <!-- Bootstrap -->
     <link href="<?php bloginfo('stylesheet_directory')?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php bloginfo('stylesheet_directory')?>/assets/css/carousel.css" rel="stylesheet">
+    <link href="<?php bloginfo('stylesheet_directory')?>/bootstrap/css/bootstrap-social.css" rel="stylesheet">
+    <link href="<?php bloginfo('stylesheet_directory')?>/bootstrap/css/font-awesome.css" rel="stylesheet">
     <link href="<?php bloginfo('stylesheet_url')?>" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -34,30 +36,39 @@
       </div>
     </header>
     <div class="wrapper container-fluid">
-      <div id="menu" class="pd-tp-40">
-        <nav class="vertical">
-          <?php
+      <div id="full-menu" class="pd-tp-40">
+        <div id="menu">
+          <nav class="vertical">
+            <?php
 
-            wp_nav_menu(
-              array(
-                'menu' => 'menu-principal',
-                'menu_class' => false,
-                'menu_id' => false,
-                'container' => false
-              )
-            );
+              wp_nav_menu(
+                array(
+                  'menu' => 'menu-principal',
+                  'menu_class' => false,
+                  'menu_id' => false,
+                  'container' => false
+                )
+              );
 
-          ?>
-        </nav>
+            ?>
+          </nav>
+        </div>
+        <div class="network-menu">
+          <a href="http://facebook.com/incitiorg" class="btn btn-social-icon btn-lg btn-facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="http://instagram.com/incitiorg" class="btn btn-social-icon btn-lg btn-instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="http://twitter.com/incitiorg" class="btn btn-social-icon btn-lg btn-twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+        </div>
       </div>
     
       <div id="content"></div>
+      
       
       <footer class="footer">
         <div class="text-center">
             <div class="row">
               <div class="col-xs-12 text-center">
                 <img src="<?php bloginfo('stylesheet_directory')?>/assets/img/logo-dark.png" class="" alt="Logo">
+                <a href="http://inciti.org/" target="_blank"><img class="inciti-logo" src="<?php bloginfo('stylesheet_directory')?>/assets/img/inciti-logo.png"></a>
               </div>
             </div>
             <div class="row copyright">

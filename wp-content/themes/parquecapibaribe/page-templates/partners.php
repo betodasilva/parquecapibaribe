@@ -1,3 +1,19 @@
+<?php 
+
+    the_post();
+
+    if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && !strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        /* SE NÃO FOR AJAX REDIRECIONA */
+
+        $redirect = get_bloginfo('url') . '/#' . bdq_hash_slug(get_permalink());
+        header("Location: $redirect");
+        die();
+    }
+
+?>
+
+<?php /* Template Name: parceiros */ ?>
+
 <section id="partners">
     <h2>Parceiros</h2>
     <h3>uma boa legenda</h3>

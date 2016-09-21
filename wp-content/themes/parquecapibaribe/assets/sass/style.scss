@@ -7,9 +7,11 @@ Author URI: http://www.badoque.com
 
 @import 'mobile-menu-btn';
 @import 'action-slider';
+@import 'contato';  
+@import 'parceiros';
 
 #img-capa{
-	width: 100%;
+  width: 100%;
 }
 
 html {
@@ -20,6 +22,10 @@ body {
   background: #eee;
   height: 100%;
   min-height: 100%;
+}
+
+p {
+  text-align: left;
 }
 
 .pd-tp-40 {
@@ -46,7 +52,7 @@ header {
   position: relative;
 }
 
-#menu {
+#full-menu {
   position: relative;
   width: 25%;
   float: left;
@@ -59,7 +65,7 @@ header {
   transform: translatez(0);
 }
 
-#menu.fixed {
+#full-menu.fixed {
   position: fixed;
   top: 0;
   left: 15px;
@@ -87,11 +93,11 @@ footer {
     transition: left 0.3s;
 
 
-    #menu.fixed {
+    #full-menu.fixed {
       left: auto;
     }
 
-    #menu, #menu.fixed {
+    #full-menu, #full-menu.fixed {
       min-width: 80vw;
       width: 80%;
       position: fixed;
@@ -117,7 +123,7 @@ footer {
     &.mobile-menu-opened {
       left: 80%;
 
-      #menu, #menu.fixed {
+      #full-menu, #full-menu.fixed {
         left: initial;
         right: 20%;
         -webkit-box-shadow: inset -16px 0px 30px -15px rgba(0,0,0,0.75);
@@ -130,7 +136,7 @@ footer {
 
 header .bar {
   position: absolute;
-  bottom: 30px;
+  top: 30px;
   left: 30px;
   z-index: 1000;
 }
@@ -162,11 +168,14 @@ header .bar {
   position: relative;
   height: 100vh;
   padding-top:30px;
-  width: 800px;
-  max-width: 100%;
+  max-width: 80%;
   text-align: justify;
   text-justify: inter-word;
   overflow: hidden;
+  /*&#participacao-popular {
+    width: 90%;
+  }*/
+
 }
 
 #loading-modal {
@@ -340,24 +349,28 @@ nav.vertical {
       display: block;
       margin-left: 30px;
       font-weight: bold;
+      margin: 5px;
 
       a {
         color: black;
         display: inline-block;
         letter-spacing: .1rem;
-        line-height: 30px;
+        line-height: 16px;
         text-decoration: none;
         text-transform: uppercase;
+        padding: 12px;
 
         &:hover {
-         color: red;
+         color: white;
+         background-color: #000;
          cursor: pointer;
         }
+      
       }
+
     }
   }
 }
-
 
 #map {
   height: 400px;
@@ -375,7 +388,14 @@ nav.vertical {
   &:hover {
     text-decoration: none;
   }
+
 }
+
+
+.img-wrapper p {
+  padding-top: 3%;
+}
+
 
 @media screen and (min-width: 200px) {
   section#pictures .row .col-md-6 .img-wrapper{

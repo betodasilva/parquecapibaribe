@@ -106,3 +106,5 @@
 	include('func/redirect.php');
 	include('func/ws-rio-capibaribe-tweets.php');
 	include('func/ws-test-tweets.php');
+
+?>
