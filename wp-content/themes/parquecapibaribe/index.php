@@ -54,9 +54,9 @@
           </nav>
         </div>
         <div class="network-menu">
-          <a href="http://facebook.com/incitiorg" class="btn btn-social-icon btn-lg btn-facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-          <a href="http://instagram.com/incitiorg" class="btn btn-social-icon btn-lg btn-instagram" target="_blank"><i class="fa fa-instagram"></i></a>
-          <a href="http://twitter.com/incitiorg" class="btn btn-social-icon btn-lg btn-twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="http://facebook.com/incitiorg" class="fb" target="_blank"><span class="fb"></span></a>
+          <a href="http://instagram.com/incitiorg" class="twitter" target="_blank"><span class="twitter"></span></a>
+          <a href="http://twitter.com/incitiorg" class="insta" target="_blank"><span class="insta"></span></a>
         </div>
       </div>
     
