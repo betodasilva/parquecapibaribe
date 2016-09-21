@@ -22,23 +22,21 @@
 	<div class="row">
 		<div class="col-sm-6 all-info" style="margin-top: 20px;">
 			<div class="info">
-				<span class="glyphicon glyphicon-phone-alt"></span> Telefone
+				<span class="glyphicon glyphicon-phone-alt"></span>
 				<span class="data">(81)3333-3333</span>
 			</div>
 			<div class="info">
-				<span class="glyphicon glyphicon-envelope"></span> Email
+				<span class="glyphicon glyphicon-envelope"></span>
 				<span class="data">contato@inciti.com</span>
 			</div>
 			<div class="info">
-				<span class="glyphicon glyphicon-map-marker"></span> Endereço
+				<span class="glyphicon glyphicon-map-marker"></span>
 				<span class="data">R. do Bom Jesus, 191</span>
 			</div>
 		</div>
 		<div class="col-sm-6" style="margin-top: 20px;">
-			<div class="network">
-				<span class="network-icon"></span>Redes Sociais
-			</div>
-			<ul>
+			
+			<ul class="social-icons">
 				<li><a href=""><span class="fb"></span>Facebook</a></li>
 				<li><a href=""><span class="twitter"></span>Twitter</a></li>
 				<li><a href=""><span class="insta"></span>Instagram</a></li>

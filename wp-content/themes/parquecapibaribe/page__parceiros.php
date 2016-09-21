@@ -21,17 +21,17 @@
 
     <h3>uma boa legenda</h3>
     <div class="row">
-      <div class="col-xs-8 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <a href="http://#" class="thumbnail">
           <img src="<?php bloginfo('stylesheet_directory')?>/assets/img/parceiro1.png" alt="Prefeitura do Recife" class="imagem" style="height: 160px;">
         </a>
       </div>
-      <div class="col-xs-8 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <a href="http://#" class="thumbnail">
           <img src="<?php bloginfo('stylesheet_directory')?>/assets/img/parceiro2.png" alt="parceiro 2" class="imagem" style="height: 160px;">
         </a>
       </div>
-      <div class="col-xs-8 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <a href="http://#" class="thumbnail">
           <img src="<?php bloginfo('stylesheet_directory')?>/assets/img/parceiro3.png" alt="parceiro 3" class="imagem" style="height: 160px;">
         </a>

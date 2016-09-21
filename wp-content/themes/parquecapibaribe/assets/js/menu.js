@@ -201,8 +201,10 @@ function Menu(cm){
     var window_top = jQuery(window).scrollTop();
     var div_top = jQuery('header').outerHeight(true);
     if (window_top > div_top) {
+      jQuery('#menu').addClass('fixed');
       jQuery('#full-menu').addClass('fixed');
     } else {
+      jQuery('#menu').removeClass('fixed');
       jQuery('#full-menu').removeClass('fixed');
     }
   }

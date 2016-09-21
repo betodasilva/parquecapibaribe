@@ -218,20 +218,22 @@ Author URI: http://www.badoque.com
   #contato .info, #contato .network {
     width: 100%;
     border-bottom: 1px solid #bbb;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     padding: 3px 0; }
     #contato .info .data, #contato .network .data {
-      float: right;
-      font-weight: bolder; }
+      /*float: right;*/
+      /*font-weight: bolder;*/
+      margin-left: 10px; }
   #contato .network-icon, #contato .fb, #contato .twitter, #contato .insta {
     width: 24px;
     height: 24px;
     display: inline-block;
     margin-bottom: -5px;
     margin-right: 5px; }
-  #contato .network-icon {
-    background: url(../parquecapibaribe/assets/img/network.png) no-repeat;
-    background-size: cover; }
+  #contato .social-icons {
+    margin-top: 30px; }
+    #contato .social-icons li {
+      margin-bottom: 20px; }
   #contato .fb {
     background: url(../parquecapibaribe/assets/img/facebook.png) no-repeat;
     background-size: cover; }
@@ -256,17 +258,45 @@ Author URI: http://www.badoque.com
   min-height: 70vh;
   margin: 50px 0; }
 
-/* Icones Menu */
+/* INCITI LOGO */
 .inciti-logo {
-  width: 200px;
-  margin-left: 50px; }
+  width: 200px; }
+  @media screen and (min-width: 992px) {
+    .inciti-logo {
+      margin-left: 20px; } }
 
+/* ICONES MENU */
 .network-menu {
-  margin-left: 25px;
-  margin-top: 30px; }
-
-.network-menu a {
-  margin: 5px; }
+  display: none; }
+  @media screen and (min-width: 992px) {
+    .network-menu {
+      display: inline-block;
+      margin-left: 50px;
+      margin-top: 20px; }
+      .network-menu .fb, .network-menu .twitter, .network-menu .insta {
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        margin-bottom: -5px;
+        margin-right: 20px; }
+      .network-menu .fb {
+        background: url(../parquecapibaribe/assets/img/facebook-bew.png) no-repeat;
+        background-size: cover; }
+        .network-menu .fb:hover {
+          background: url(../parquecapibaribe/assets/img/facebook-color.png) no-repeat;
+          transition: background 1s ease; }
+      .network-menu .twitter {
+        background: url(../parquecapibaribe/assets/img/twitter-bew.png) no-repeat;
+        background-size: cover; }
+        .network-menu .twitter:hover {
+          background: url(../parquecapibaribe/assets/img/twitter-color.png) no-repeat;
+          transition: background 1s ease; }
+      .network-menu .insta {
+        background: url(../parquecapibaribe/assets/img/instagram-bew.png) no-repeat;
+        background-size: cover; }
+        .network-menu .insta:hover {
+          background: url(../parquecapibaribe/assets/img/instagram-color.png) no-repeat;
+          transition: background 1s ease; } }
 
 /* FOTOS */
 .hovereffect {
@@ -381,21 +411,21 @@ header {
   height: 100vh;
   position: relative; }
 
-#full-menu {
-  position: relative;
-  width: 25%;
-  float: left;
-  z-index: 500;
-  -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
-  -ms-transform: translatez(0);
-  -o-transform: translatez(0);
-  transform: translatez(0); }
-
-#full-menu.fixed {
-  position: fixed;
-  top: 0;
-  left: 15px; }
+@media screen and (min-width: 992px) {
+  #full-menu {
+    position: relative;
+    width: 25%;
+    float: left;
+    z-index: 500;
+    -webkit-transform: translatez(0);
+    -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    transform: translatez(0); }
+    #full-menu.fixed {
+      position: fixed;
+      top: 0;
+      left: 15px; } }
 
 #content {
   width: 75%;
@@ -415,9 +445,9 @@ footer {
     -webkit-transition: left 0.3s;
     /* Safari */
     transition: left 0.3s; }
-    body #full-menu.fixed {
+    body #menu.fixed {
       left: auto; }
-    body #full-menu, body #full-menu.fixed {
+    body #menu, body #menu.fixed {
       min-width: 80vw;
       width: 80%;
       position: fixed;
@@ -437,7 +467,7 @@ footer {
       float: right; }
     body.mobile-menu-opened {
       left: 80%; }
-      body.mobile-menu-opened #full-menu, body.mobile-menu-opened #full-menu.fixed {
+      body.mobile-menu-opened #menu, body.mobile-menu-opened #menu.fixed {
         left: initial;
         right: 20%;
         -webkit-box-shadow: inset -16px 0px 30px -15px rgba(0, 0, 0, 0.75);
@@ -445,7 +475,7 @@ footer {
         box-shadow: inset -16px 0px 30px -15px rgba(0, 0, 0, 0.75); } }
 header .bar {
   position: absolute;
-  top: 30px;
+  /*top: 30px;*/
   left: 30px;
   z-index: 1000; }
 
